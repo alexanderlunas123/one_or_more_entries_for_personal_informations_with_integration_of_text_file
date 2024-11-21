@@ -54,23 +54,29 @@ while True:
 
         user_marital_status = input("").strip().capitalize()
         if user_marital_status == "A":
-            marital_status_generator.append("Single")
+            marital_status_generator = ["Single"]
             break
         elif user_marital_status == "B":
-            marital_status_generator.append("Married")
+            marital_status_generator = ["Married"]
             break
         elif user_marital_status == "C":
-            marital_status_generator.append("Divorced")    
+            marital_status_generator = ["Divorced"]    
             break
         elif user_marital_status == "D":
-            marital_status_generator.append("Widowed")
+            marital_status_generator = ["Widowed"]
             break
         elif user_marital_status == "E":
-            marital_status_generator.append("Separated") 
+            marital_status_generator = ["Separated"]
             break 
         else:
             print("Invalid input.")
-            print("Please read the instruction again. Thank you.")     
+            print("Please read the instruction again. Thank you.") 
+
+    with open("user(s)_informations.txt", "a") as database:
+        database.write(user_name + "\n")
+        database.write(user_age + "\n")
+        database.write(user_address + "\n")
+        database.write(" ".join(marital_status_generator) + "\n\n")            
 
     while True:
         another_entry = input("Would you like to submit another entry? (Yes/No): ").strip().capitalize() 
@@ -82,15 +88,3 @@ while True:
 
     if another_entry == "No":
         break
-
-
-
-
-
-
-
-#with open("user(s)_informations.txt", "a") as database:
-#    database.write(user_name + "\n")
-#    database.write(user_age + "\n")
-#   database.write(user_address + "\n")
-#    database.write(user_gender + "\n")
