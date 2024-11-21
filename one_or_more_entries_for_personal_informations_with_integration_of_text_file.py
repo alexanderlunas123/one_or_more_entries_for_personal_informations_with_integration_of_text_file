@@ -73,10 +73,11 @@ while True:
             print("Please read the instruction again. Thank you.") 
 
     with open("user(s)_informations.txt", "a") as database:
-        database.write(user_name + "\n")
-        database.write(user_age + "\n")
-        database.write(user_address + "\n")
-        database.write(" ".join(marital_status_generator) + "\n\n")            
+        database.write(f"Name: {user_name}\n")
+        database.write(f"Age: {user_age}\n")
+        database.write(f"Address: {user_address}\n")
+        database.write(f"Gender: {user_gender}\n")
+        database.write("Marital Status: " + " ".join(marital_status_generator) + "\n\n")            
 
     while True:
         another_entry = input("Would you like to submit another entry? (Yes/No): ").strip().capitalize() 
