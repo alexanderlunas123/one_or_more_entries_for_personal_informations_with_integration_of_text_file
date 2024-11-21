@@ -1,8 +1,9 @@
 allowed_special_characters = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/"
+marital_status_generator = []
 
 while True:
     while True:
-        user_name = input("Name: ").strip()
+        user_name = input("Name (can be username or real name): ").strip()
         replacing_spaced_names = user_name.replace(" ", "")
         if all(char.isalpha() or char in allowed_special_characters for char in replacing_spaced_names):
             break 
@@ -36,18 +37,60 @@ while True:
     while True:
         user_gender = input("Gender (Male/Female): ").strip().capitalize()
         if user_gender == "Male" or user_gender == "Female":
-            break 
+            print("")
+            break
         else:
             print("Invalid input, 'Male' or 'Female' only.")
-            print("Please try again.")
+            print("Please try again.\n")
+
+    while True:
+        print("Marital Status")
+        print("Choose one from the following below (type its corresponding letter):\n")
+        print("A. Single")
+        print("B. Married")
+        print("C. Divorced")
+        print("D. Widowed")
+        print("E. Separated\n") 
+
+        user_marital_status = input("").strip().capitalize()
+        if user_marital_status == "A":
+            marital_status_generator.append("Single")
+            break
+        elif user_marital_status == "B":
+            marital_status_generator.append("Married")
+            break
+        elif user_marital_status == "C":
+            marital_status_generator.append("Divorced")    
+            break
+        elif user_marital_status == "D":
+            marital_status_generator.append("Widowed")
+            break
+        elif user_marital_status == "E":
+            marital_status_generator.append("Separated") 
+            break 
+        else:
+            print("Invalid input.")
+            print("Please read the instruction again. Thank you.")     
+
+    while True:
+        another_entry = input("Would you like to submit another entry? (Yes/No): ").strip().capitalize() 
+        if another_entry == "No" or another_entry == "Yes":    
+            break
+        else:
+            print("Invalid input, 'Yes' or 'No' only.")
+            print("Please try again.")     
+
+    if another_entry == "No":
+        break
 
 
 
 
 
 
-with open("user(s)_informations.txt", "a") as database:
-    database.write(user_name + "\n")
-    database.write(user_age + "\n")
-    database.write(user_address + "\n")
-    database.write(user_gender + "\n")
+
+#with open("user(s)_informations.txt", "a") as database:
+#    database.write(user_name + "\n")
+#    database.write(user_age + "\n")
+#   database.write(user_address + "\n")
+#    database.write(user_gender + "\n")
